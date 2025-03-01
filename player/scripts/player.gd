@@ -5,9 +5,9 @@ extends CharacterBody3D
 @export var player_index: int = -1  # -1 means unassigned
 
 # Tracking state
-var is_active = false  # Whether this player has joined the game
-var input_device = -1  # -1: keyboard, ≥0: gamepad device ID
-var BulletScene = preload("res://basic.tscn")
+var is_active = false  # whaeter this player hsa joind gam yet ro not
+var input_device = -1  # -1: keyboard, => 0: gamepad device ID
+var BulletScene = preload("res://weapons/scenes/basic.tscn")
 var shoot_cooldown = 0.3
 var time_since_shot = 0.0
 
@@ -70,6 +70,7 @@ func _physics_process(delta: float) -> void:
 	if input_device == -1:
 		# Keyboard controls
 		input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		print("kbc")
 	else:
 		# Gamepad controls - use joypad motion from the specific device
 		input_dir = Vector2(
@@ -86,6 +87,7 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector3 = Vector3(input_dir.x, 0, input_dir.y).normalized()
 	
 	var target_velocity: Vector3 = direction * speed
+	print(target_velocity)
 	
 	velocity.x = move_toward(velocity.x, target_velocity.x, acceleration * delta)
 	velocity.z = move_toward(velocity.z, target_velocity.z, acceleration * delta)

@@ -9,11 +9,11 @@ var max_players = 4
 var assigned_devices = []
 
 # Camera settings
-@export var camera_offset = Vector3(0, 100, 0)
-@export var camera_smoothing = 3.0
-@export var min_camera_height = 10.0
-@export var max_camera_height = 95.0
-@export var camera_zoom_margin = 5.0  # Extra space beyond player bounds
+@export var camera_offset = Vector3(0, 20, 0)
+@export var camera_smoothing = 2.0
+@export var min_camera_height = 8.5
+@export var max_camera_height = 37.5
+@export var camera_zoom_margin = 8.5  # Extra space beyond player bounds
 
 # References (is that an undertale reference :ninja_stare:)
 @onready var main_camera = $Camera3D
@@ -49,7 +49,7 @@ func _process(delta):
 		process_join_input(-1)
 
 	
-	#update_camera(delta)
+	update_camera(delta)
 	
 	check_quit_condition()
 
@@ -157,7 +157,7 @@ func update_camera(delta):
 	
 	# adjust cmaera hiehgt pbased on players psread
 	var target_height = clamp(
-		min_camera_height + max_spread * 0.5,
+		min_camera_height + max_spread * 0.35,
 		min_camera_height,
 		max_camera_height
 	)

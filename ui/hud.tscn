@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://chas52y7dou5d"]
 
-[ext_resource type="FontFile" uid="uid://cmf1tp6ky8r1c" path="res://VCR_OSD_MONO_1.001.ttf" id="1_vsapr"]
+[ext_resource type="FontFile" uid="uid://cmf1tp6ky8r1c" path="res://fonts/VCR_OSD_MONO_1.001.ttf" id="1_vsapr"]
 
 [sub_resource type="FontVariation" id="FontVariation_gpfyu"]
 base_font = ExtResource("1_vsapr")

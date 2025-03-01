@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://drm6pgvvr2k0x"]
 
-[ext_resource type="Script" path="res://basic.gd" id="1_h51oj"]
+[ext_resource type="Script" path="res://weapons/scripts/basic.gd" id="1_ibtth"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jamgl"]
 radius = 0.1
@@ -25,7 +25,7 @@ gravity_space_override = 3
 gravity_point_center = Vector3(0, 0, 0)
 gravity_direction = Vector3(0, 0, 0)
 gravity = 0.0
-script = ExtResource("1_h51oj")
+script = ExtResource("1_ibtth")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.59989e-21, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)

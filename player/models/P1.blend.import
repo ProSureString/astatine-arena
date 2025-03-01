@@ -3,17 +3,17 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bux2u7x4c5mug"
-path="res://.godot/imported/cub.blend-b5f2821e85c3f088af5b1ab3d5d94e0a.scn"
+uid="uid://ceojdtvul1hop"
+path="res://.godot/imported/P1.blend-e61568dbec945ab9ecaebb466d38ac6e.scn"
 
 [deps]
 
-source_file="res://cub.blend"
-dest_files=["res://.godot/imported/cub.blend-b5f2821e85c3f088af5b1ab3d5d94e0a.scn"]
+source_file="res://player/models/P1.blend"
+dest_files=["res://.godot/imported/P1.blend-e61568dbec945ab9ecaebb466d38ac6e.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
+nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
@@ -33,10 +33,10 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Camera": {
-"import/skip_import": true
+"PATH:BULLET_SPAWN": {
+"mesh_instance/cast_shadow": 0
 },
-"PATH:Light": {
+"PATH:Camera": {
 "import/skip_import": true
 }
 }

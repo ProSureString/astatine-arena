@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://bh10gu28pjkv5"]
 
-[ext_resource type="PackedScene" uid="uid://bsry1tmkqnk5i" path="res://ui.tscn" id="1_067dx"]
-[ext_resource type="Script" path="res://proto.gd" id="1_oh8rs"]
-[ext_resource type="Script" path="res://game_manager.gd" id="2_5cy55"]
-[ext_resource type="PackedScene" uid="uid://b0xclktsbrssr" path="res://player.tscn" id="2_twvxe"]
-[ext_resource type="PackedScene" uid="uid://ct2l61qqh8ly0" path="res://testmap.tscn" id="4_qr237"]
+[ext_resource type="Script" path="res://main/scripts/proto.gd" id="1_0hqyl"]
+[ext_resource type="Script" path="res://main/scripts/game_manager.gd" id="2_7r4if"]
+[ext_resource type="PackedScene" uid="uid://b0xclktsbrssr" path="res://player/scenes/player.tscn" id="3_pnsso"]
+[ext_resource type="PackedScene" uid="uid://ct2l61qqh8ly0" path="res://main/maps/testmap.tscn" id="4_rqkqd"]
+[ext_resource type="PackedScene" uid="uid://bsry1tmkqnk5i" path="res://ui/ui.tscn" id="5_5p1h2"]
 
 [sub_resource type="Shader" id="Shader_vlnj5"]
 code = "shader_type sky;
@@ -52,11 +52,11 @@ roughness = 0.0
 size = Vector3(189.2, 0.099, 189.2)
 
 [node name="proto" type="Node3D"]
-script = ExtResource("1_oh8rs")
+script = ExtResource("1_0hqyl")
 
 [node name="GameManager" type="Node" parent="."]
-script = ExtResource("2_5cy55")
-player_scene = ExtResource("2_twvxe")
+script = ExtResource("2_7r4if")
+player_scene = ExtResource("3_pnsso")
 
 [node name="SpawnPoints" type="Node3D" parent="GameManager"]
 
@@ -80,7 +80,7 @@ current = true
 environment = SubResource("Environment_j0wbj")
 compositor = SubResource("Compositor_jwglh")
 
-[node name="testmap" parent="." instance=ExtResource("4_qr237")]
+[node name="testmap" parent="." instance=ExtResource("4_rqkqd")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="testmap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -114,7 +114,7 @@ text = "Join
 
 [node name="Players" type="Node3D" parent="."]
 
-[node name="UI" parent="." instance=ExtResource("1_067dx")]
+[node name="UI" parent="." instance=ExtResource("5_5p1h2")]
 
 [connection signal="pressed" from="CanvasLayer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/Join" to="." method="_on_join_pressed"]

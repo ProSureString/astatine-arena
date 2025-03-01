@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bsry1tmkqnk5i"]
 
-[ext_resource type="Shader" path="res://3deffect.gdshader" id="1_05ldi"]
-[ext_resource type="Shader" path="res://effects.gdshader" id="2_jugep"]
-[ext_resource type="PackedScene" uid="uid://chas52y7dou5d" path="res://hud.tscn" id="3_4l6oa"]
+[ext_resource type="Shader" path="res://shaders/3deffect.gdshader" id="1_05ldi"]
+[ext_resource type="Shader" path="res://shaders/effects.gdshader" id="2_jugep"]
+[ext_resource type="PackedScene" uid="uid://chas52y7dou5d" path="res://ui/hud.tscn" id="3_4l6oa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hhox8"]
 shader = ExtResource("1_05ldi")
