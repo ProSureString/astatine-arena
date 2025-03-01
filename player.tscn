@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0xclktsbrssr"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_qlhce"]
+[ext_resource type="PackedScene" uid="uid://cca78d27c2c5q" path="res://Player1Model.tscn" id="3_10jrs"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6dkqv"]
+radius = 1.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_8gkuk"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("P1M:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("P1M:rotation")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Camera:position")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("Camera:rotation")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+
+[node name="Player" type="CharacterBody3D"]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_qlhce")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_6dkqv")
+
+[node name="P1M" parent="." instance=ExtResource("3_10jrs")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_8gkuk")
+
+[node name="BulletSpawn" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://drm6pgvvr2k0x"]
+
+[ext_resource type="Script" path="res://basic.gd" id="1_h51oj"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jamgl"]
+radius = 0.1
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0svk"]
+albedo_color = Color(0.831373, 0.113725, 1, 1)
+metallic_specular = 0.0
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 0, 1, 1)
+emission_energy_multiplier = 3.0
+clearcoat = 0.0
+clearcoat_roughness = 0.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_unl5v"]
+radius = 0.1
+height = 1.0
+
+[node name="Basic" type="Area3D"]
+gravity_space_override = 3
+gravity_point_center = Vector3(0, 0, 0)
+gravity_direction = Vector3(0, 0, 0)
+gravity = 0.0
+script = ExtResource("1_h51oj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, -3.59989e-21, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_jamgl")
+surface_material_override/0 = SubResource("StandardMaterial3D_e0svk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_unl5v")

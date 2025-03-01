@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://v6drhfarxbq5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_555gj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q23h4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pu4ul"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_vxjcv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0exw"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = SubResource("ImageTexture_vxjcv")
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.26
+emission_enabled = true
+emission = Color(2.93297e-08, 0, 0.058502, 1)
+heightmap_scale = 16.0
+refraction_enabled = true
+grow_amount = 0.36
+
+[node name="StaticBody3D" type="StaticBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_555gj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_q23h4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pu4ul")
+surface_material_override/0 = SubResource("StandardMaterial3D_i0exw")

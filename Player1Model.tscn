@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cca78d27c2c5q"]
+
+[ext_resource type="PackedScene" uid="uid://ceojdtvul1hop" path="res://P1.blend" id="1_ckw1o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05cu4"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+metallic_specular = 0.49
+roughness = 0.0
+emission_enabled = true
+subsurf_scatter_enabled = true
+refraction_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rr40i"]
+albedo_color = Color(1, 0, 0, 1)
+metallic_specular = 0.0
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 16.0
+subsurf_scatter_strength = 1.0
+subsurf_scatter_skin_mode = true
+backlight_enabled = true
+backlight = Color(1, 0, 0, 1)
+refraction_enabled = true
+disable_receive_shadows = true
+
+[node name="P1M" instance=ExtResource("1_ckw1o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Light" parent="." index="0"]
+visible = false
+light_energy = 1.0
+
+[node name="PlayerModel" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_05cu4")
+surface_material_override/1 = SubResource("StandardMaterial3D_rr40i")

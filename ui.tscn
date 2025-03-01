@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsry1tmkqnk5i"]
+
+[ext_resource type="Shader" path="res://3deffect.gdshader" id="1_05ldi"]
+[ext_resource type="Shader" path="res://effects.gdshader" id="2_jugep"]
+[ext_resource type="PackedScene" uid="uid://chas52y7dou5d" path="res://hud.tscn" id="3_4l6oa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hhox8"]
+shader = ExtResource("1_05ldi")
+shader_parameter/overlay = true
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/pixelate = true
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 0.1
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/aberration = 0.00500005
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.792
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_egubv"]
+shader = ExtResource("2_jugep")
+shader_parameter/noise_intensity = 0.19
+shader_parameter/tracking_jitter = 0.089
+shader_parameter/time_scale = 1.0
+shader_parameter/scanline_count = 180.0
+shader_parameter/scanline_opacity = 0.4
+shader_parameter/screen_size = Vector2(320, 240)
+shader_parameter/enable_curved_screen = true
+shader_parameter/curvature = 4.0
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CRTLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="CRTMain" type="ColorRect" parent="CRTLayer"]
+material = SubResource("ShaderMaterial_hhox8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+visible = false
+material = SubResource("ShaderMaterial_egubv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="HUD" parent="HUDLayer" instance=ExtResource("3_4l6oa")]
+offset_left = 68.0
+offset_top = 38.0
+offset_right = -67.0
+offset_bottom = -38.0
